@@ -1,5 +1,5 @@
 import { fetchBreeds, fetchCatByBreed } from './cat-api.js';
-
+import Notiflix from 'notiflix';
 document.addEventListener('DOMContentLoaded', function () {
   const loader = document.querySelector('.loader');
   const error = document.querySelector('.error');
@@ -30,11 +30,11 @@ document.addEventListener('DOMContentLoaded', function () {
           showBreedSelect();
         })
         .catch(() => {
-          showError('Ooops! Something went wrong! Try reloading the page!');
+          Notiflix.Notify.failure('Ooops! Something went wrong! Try reloading the page!');
           hideLoader();
         });
     } catch (error) {
-      showError('Ooops! Something went wrong! Try reloading the page!');
+      Notiflix.Notify.failure('Ooops! Something went wrong! Try reloading the page!');
       hideLoader();
     }
   }
@@ -55,11 +55,11 @@ document.addEventListener('DOMContentLoaded', function () {
           hideLoader();
         })
         .catch(() => {
-          showError('Ooops! Something went wrong! Try reloading the page!');
+          Notiflix.Notify.failure('Ooops! Something went wrong! Try reloading the page!');
           hideLoader();
         });
     } catch (error) {
-      showError('Ooops! Something went wrong! Try reloading the page!');
+      Notiflix.Notify.failure('Ooops! Something went wrong! Try reloading the page!');
       hideLoader();
     }
   }
@@ -72,10 +72,10 @@ document.addEventListener('DOMContentLoaded', function () {
     loader.style.display = 'none';
   }
 
-  function showError(errorMessage) {
-    error.style.display = 'block';
-    error.textContent = errorMessage;
-  }
+  // function showError(errorMessage) {
+  //   error.style.display = 'block';
+  //   error.textContent = errorMessage;
+  // }
 
   function hideError() {
     error.style.display = 'none';
